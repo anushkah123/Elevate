@@ -17,13 +17,14 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '10mb' }));
 
 // CORS
-const allowedOrigins = process.env.FRONTEND_URL
-  ? [process.env.FRONTEND_URL, 'http://localhost:3000']
-  : ['http://localhost:3000'];
-
+// CORS - allow GitHub Pages + localhost
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    const allowed = [
+      'https://anushkah123.github.io',
+      'http://localhost:3000',
+    ];
+    if (!origin || allowed.includes(origin)) return callback(null, true);
     callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
