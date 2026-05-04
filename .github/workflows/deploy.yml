@@ -22,9 +22,11 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm install
 
       - name: Build
+        working-directory: frontend
         env:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
           CI: false
@@ -35,7 +37,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./frontend/build
 
   test-backend:
     name: Test Backend
