@@ -1,13 +1,11 @@
-name: Deploy QuizGen AI
+name: Deploy Elevate
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 permissions:
-  contents: write        # ← needed to push to gh-pages branch
+  contents: write
   pages: write
   id-token: write
 
@@ -17,20 +15,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install dependencies
-        working-directory: frontend
         run: npm install
 
       - name: Build
-        working-directory: frontend
         env:
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
           CI: false
@@ -41,26 +35,24 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/build    # ← path from repo root
+          publish_dir: ./build
 
   test-backend:
     name: Test Backend
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install
         working-directory: backend
         run: npm install
 
-      - name: Health check (syntax)
+      - name: Health check
         working-directory: backend
         run: node -e "require('./server.js')" &
         env:
