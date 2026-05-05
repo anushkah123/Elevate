@@ -1,123 +1,152 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
-import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 import { useQuiz } from '../context/QuizContext';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, Radar, PolarGrid, PolarAngleAxis, CartesianGrid } from 'recharts';
+import { BarChart3, Trophy, Target, Calendar, Brain } from 'lucide-react';
 
 export default function Dashboard() {
-  const navigate = useNavigate();
   const { history } = useQuiz();
 
-  const chartData = history.map((h, i) => ({
-    name: `Quiz ${i + 1}`,
-    score: h.pct,
-    topic: h.topic,
-  })).reverse();
+  if (!history.length) {
+    return (
+      <div className="page">
+        <div className="container-sm text-center" style={{ paddingTop: '4rem' }}>
+          <BarChart3 size={48} style={{ color: 'var(--primary-light)', marginBottom: '1rem' }} />
+          <h2 className="section-title mb-2">No quiz history yet</h2>
+          <p className="text-secondary mb-3">Complete your first quiz to see analytics here.</p>
+          <Link to="/create" className="btn btn-primary"><Brain size={16} /> Create Your First Quiz</Link>
+        </div>
+      </div>
+    );
+  }
 
-  const avgScore = history.length
-    ? Math.round(history.reduce((s, h) => s + h.pct, 0) / history.length)
-    : 0;
+  const avgScore = Math.round(history.reduce((a, r) => a + r.score, 0) / history.length);
+  const best = Math.max(...history.map(r => r.score));
+  const totalQuestions = history.reduce((a, r) => a + r.total, 0);
+
+  const lineData = [...history].reverse().map((r, i) => ({
+    name: `Q${i + 1}`,
+    score: r.score,
+    topic: r.topic,
+  }));
+
+  const subtopicAgg = {};
+  history.forEach(r => {
+    Object.entries(r.subtopics || {}).forEach(([k, v]) => {
+      if (!subtopicAgg[k]) subtopicAgg[k] = { correct: 0, total: 0 };
+      subtopicAgg[k].correct += v.correct;
+      subtopicAgg[k].total += v.total;
+    });
+  });
+  const radarData = Object.entries(subtopicAgg).slice(0, 8).map(([k, v]) => ({
+    subject: k.length > 12 ? k.slice(0, 12) + '…' : k,
+    score: Math.round((v.correct / v.total) * 100),
+  }));
 
   return (
-    <>
-      <Navbar />
-      <div className="page-container" style={{ maxWidth: 900 }}>
-        <h1 className="page-title">Dashboard</h1>
-        <p className="page-sub">Track your learning progress over time</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1rem', marginBottom: '2rem' }}>
-          {[
-            { label: 'Quizzes taken', value: history.length },
-            { label: 'Average score', value: `${avgScore}%` },
-            { label: 'Best score', value: history.length ? `${Math.max(...history.map(h => h.pct))}%` : '—' },
-          ].map((s) => (
-            <div key={s.label} style={{
-              background: 'white',
-              border: '1px solid var(--border)',
-              borderRadius: 16,
-              padding: '1.25rem',
-              textAlign: 'center',
-            }}>
-              <span style={{ fontFamily: "'Playfair Display',serif", fontSize: 32, fontWeight: 700, color: 'var(--lilac-600)', display: 'block' }}>{s.value}</span>
-              <span style={{ fontSize: 13, color: 'var(--text-light)' }}>{s.label}</span>
+    <div className="page">
+      <div className="container">
+        <div className="fade-in">
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h1 className="section-title" style={{ fontSize: '2rem' }}>
+                <BarChart3 size={26} style={{ display: 'inline', marginRight: 8, color: 'var(--primary)', verticalAlign: 'middle' }} />
+                Your Dashboard
+              </h1>
+              <p className="section-subtitle">{history.length} quiz{history.length > 1 ? 'zes' : ''} completed</p>
             </div>
-          ))}
-        </div>
-
-        {chartData.length > 0 ? (
-          <div className="chart-card" style={{ marginBottom: '2rem' }}>
-            <div className="chart-title">Score history</div>
-            <ResponsiveContainer width="100%" height={220}>
-              <LineChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-                <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--text-light)' }} />
-                <YAxis domain={[0, 100]} tick={{ fontSize: 12, fill: 'var(--text-light)' }} />
-                <Tooltip
-                  contentStyle={{ borderRadius: 10, border: '1px solid var(--border)', fontSize: 13 }}
-                  formatter={(v) => [`${v}%`, 'Score']}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="score"
-                  stroke="#7c3aed"
-                  strokeWidth={2.5}
-                  dot={{ fill: '#7c3aed', r: 4 }}
-                  activeDot={{ r: 6 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+            <Link to="/create" className="btn btn-primary btn-sm"><Brain size={14} /> New Quiz</Link>
           </div>
-        ) : (
-          <div style={{
-            background: 'var(--lilac-50)',
-            border: '1px dashed var(--lilac-300)',
-            borderRadius: 16,
-            padding: '3rem',
-            textAlign: 'center',
-            marginBottom: '2rem',
-          }}>
-            <div style={{ fontSize: 32, marginBottom: '1rem' }}>📊</div>
-            <div style={{ fontSize: 16, fontWeight: 500, color: 'var(--text-mid)', marginBottom: 8 }}>No quiz history yet</div>
-            <div style={{ fontSize: 14, color: 'var(--text-light)', marginBottom: '1.5rem' }}>Take a quiz to see your progress here</div>
-            <button className="btn btn-primary" onClick={() => navigate('/create')}>Create your first quiz →</button>
-          </div>
-        )}
 
-        {history.length > 0 && (
-          <div className="chart-card">
-            <div className="chart-title">Recent quizzes</div>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
-              <thead>
-                <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                  {['Topic', 'Score', 'Date'].map((h) => (
-                    <th key={h} style={{ textAlign: 'left', padding: '8px 12px', fontSize: 12, color: 'var(--text-light)', fontWeight: 600 }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {history.map((h, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
-                    <td style={{ padding: '10px 12px', color: 'var(--text-dark)', fontWeight: 500 }}>{h.topic}</td>
-                    <td style={{ padding: '10px 12px' }}>
-                      <span style={{
-                        background: h.pct >= 80 ? '#f0fdf4' : h.pct >= 50 ? 'var(--lilac-100)' : '#fef2f2',
-                        color: h.pct >= 80 ? '#15803d' : h.pct >= 50 ? 'var(--lilac-700)' : '#b91c1c',
-                        padding: '3px 10px',
-                        borderRadius: 100,
-                        fontSize: 12,
-                        fontWeight: 600,
-                      }}>{h.pct}%</span>
-                    </td>
-                    <td style={{ padding: '10px 12px', color: 'var(--text-light)', fontSize: 13 }}>
-                      {new Date(h.date).toLocaleDateString()}
-                    </td>
+          <div className="grid-4 mb-3">
+            {[
+              { icon: <Trophy size={20} />, label: 'Avg Score', value: `${avgScore}%`, color: 'var(--primary)' },
+              { icon: <Target size={20} />, label: 'Best Score', value: `${best}%`, color: 'var(--success)' },
+              { icon: <Calendar size={20} />, label: 'Quizzes Taken', value: history.length, color: 'var(--accent)' },
+              { icon: <Brain size={20} />, label: 'Questions Done', value: totalQuestions, color: 'var(--warning)' },
+            ].map((s, i) => (
+              <div key={i} className="card text-center">
+                <div style={{ color: s.color, marginBottom: '0.5rem' }}>{s.icon}</div>
+                <div style={{ fontSize: '1.75rem', fontWeight: 800, fontFamily: 'Syne', color: s.color }}>{s.value}</div>
+                <div className="text-secondary text-sm">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid-2 mb-3">
+            <div className="card">
+              <h3 style={{ marginBottom: '1rem' }}>📈 Score History</h3>
+              <ResponsiveContainer width="100%" height={220}>
+                <LineChart data={lineData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+                  <XAxis dataKey="name" tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
+                  <YAxis domain={[0, 100]} tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
+                  <Tooltip
+                    contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }}
+                    labelStyle={{ color: 'var(--text)' }}
+                    formatter={(v, _, { payload }) => [`${v}% — ${payload.topic}`, 'Score']}
+                  />
+                  <Line type="monotone" dataKey="score" stroke="var(--primary)" strokeWidth={2.5} dot={{ r: 4, fill: 'var(--primary)' }} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="card">
+              <h3 style={{ marginBottom: '1rem' }}>🎯 Topic Mastery</h3>
+              {radarData.length >= 3 ? (
+                <ResponsiveContainer width="100%" height={220}>
+                  <RadarChart data={radarData}>
+                    <PolarGrid stroke="var(--border)" />
+                    <PolarAngleAxis dataKey="subject" tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} />
+                    <Radar dataKey="score" stroke="var(--primary)" fill="var(--primary)" fillOpacity={0.2} strokeWidth={2} />
+                  </RadarChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="text-center text-secondary" style={{ padding: '3rem 0' }}>
+                  Complete more quizzes to see the mastery radar chart.
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="card">
+            <h3 style={{ marginBottom: '1rem' }}>📋 Quiz History</h3>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ borderBottom: '2px solid var(--border)' }}>
+                    {['Topic', 'Score', 'Correct', 'Difficulty', 'Date'].map(h => (
+                      <th key={h} style={{ padding: '0.75rem', textAlign: 'left', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600 }}>{h}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {history.map((r, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
+                      <td style={{ padding: '0.75rem', fontWeight: 600 }}>{r.topic}</td>
+                      <td style={{ padding: '0.75rem' }}>
+                        <span style={{
+                          fontWeight: 700,
+                          color: r.score >= 70 ? 'var(--success)' : r.score >= 50 ? 'var(--warning)' : 'var(--danger)',
+                        }}>{r.score}%</span>
+                      </td>
+                      <td style={{ padding: '0.75rem', color: 'var(--text-secondary)' }}>{r.correct}/{r.total}</td>
+                      <td style={{ padding: '0.75rem' }}>
+                        <span className={`chip chip-${r.difficulty === 'easy' ? 'green' : r.difficulty === 'medium' ? 'blue' : 'red'}`} style={{ textTransform: 'capitalize' }}>
+                          {r.difficulty}
+                        </span>
+                      </td>
+                      <td style={{ padding: '0.75rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                        {new Date(r.date).toLocaleDateString()}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

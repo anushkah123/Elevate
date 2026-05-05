@@ -1,4 +1,4 @@
-# 🧠 Elevate
+# 🧠 QuizGen AI
 
 > AI-powered quiz platform using NVIDIA NIM (LLaMA 3.3 70B), React frontend on GitHub Pages, and Express backend on Railway.
 
@@ -69,9 +69,9 @@ In your GitHub repo → **Settings → Secrets and variables → Actions**, add:
 ```bash
 git init
 git add .
-git commit -m "Initial Elevate deploy"
+git commit -m "Initial QuizGen AI deploy"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/Elevate.git
+git remote add origin https://github.com/YOUR_USERNAME/quizgen-ai.git
 git push -u origin main
 ```
 
@@ -79,7 +79,7 @@ The GitHub Actions workflow will:
 - Build the React app with your Railway backend URL injected
 - Deploy to GitHub Pages automatically
 
-Your site will be live at: `https://YOUR_USERNAME.github.io/Elevate`
+Your site will be live at: `https://YOUR_USERNAME.github.io/quizgen-ai`
 
 ---
 

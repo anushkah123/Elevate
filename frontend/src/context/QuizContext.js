@@ -1,34 +1,24 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const QuizContext = createContext(null);
+const QuizContext = createContext();
 
 export function QuizProvider({ children }) {
-  const [quizConfig, setQuizConfig]   = useState(null);
-  const [questions, setQuestions]     = useState([]);
-  const [answers, setAnswers]         = useState({});
-  const [results, setResults]         = useState(null);
-  const [history, setHistory]         = useState([]);
-
-  const resetQuiz = () => {
-    setQuizConfig(null);
-    setQuestions([]);
-    setAnswers({});
-    setResults(null);
-  };
+  const [currentQuiz, setCurrentQuiz] = useState(null);
+  const [quizResults, setQuizResults] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [adaptiveQuestions, setAdaptiveQuestions] = useState([]);
 
   const saveResult = (result) => {
-    setResults(result);
-    setHistory((prev) => [result, ...prev].slice(0, 20));
+    setQuizResults(result);
+    setHistory(h => [result, ...h].slice(0, 20));
   };
 
   return (
     <QuizContext.Provider value={{
-      quizConfig, setQuizConfig,
-      questions,  setQuestions,
-      answers,    setAnswers,
-      results,    saveResult,
+      currentQuiz, setCurrentQuiz,
+      quizResults, setQuizResults, saveResult,
       history,
-      resetQuiz,
+      adaptiveQuestions, setAdaptiveQuestions,
     }}>
       {children}
     </QuizContext.Provider>
