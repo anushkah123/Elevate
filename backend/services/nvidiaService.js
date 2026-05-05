@@ -45,6 +45,7 @@ For short answer: options = [], type = "shortanswer", correctAnswer = "expected 
 Ensure all ${questionCount} questions are unique, educational, and at ${difficulty} difficulty.`;
 
   try {
+    console.time('nvidia-api');
     const response = await axios.post(
       `${NVIDIA_NIM_BASE_URL}/chat/completions`,
       {
@@ -59,9 +60,10 @@ Ensure all ${questionCount} questions are unique, educational, and at ${difficul
           Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
-        timeout: 60000,
+        timeout: 120000,
       }
     );
+    console.timeEnd('nvidia-api');
 
     const content = response.data.choices[0].message.content;
     const cleaned = content.replace(/```json|```/g, '').trim();

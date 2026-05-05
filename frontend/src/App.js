@@ -15,8 +15,8 @@ export default function App() {
   return (
     <ThemeProvider>
       <QuizProvider>
-        <BrowserRouter basename="/Elevate">
-          <Navbar />
+      <BrowserRouter basename={window.location.hostname === 'localhost' ? '' : '/Elevate'}>
+        <Navbar />
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/create" element={<CreateQuiz />} />
