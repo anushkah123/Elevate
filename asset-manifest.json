@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Elevate/static/css/main.7302654a.css",
-    "main.js": "/Elevate/static/js/main.0f4d7369.js",
+    "main.css": "/Elevate/static/css/main.3b606ff6.css",
+    "main.js": "/Elevate/static/js/main.7b82396b.js",
     "index.html": "/Elevate/index.html",
-    "main.7302654a.css.map": "/Elevate/static/css/main.7302654a.css.map",
-    "main.0f4d7369.js.map": "/Elevate/static/js/main.0f4d7369.js.map"
+    "main.3b606ff6.css.map": "/Elevate/static/css/main.3b606ff6.css.map",
+    "main.7b82396b.js.map": "/Elevate/static/js/main.7b82396b.js.map"
   },
   "entrypoints": [
-    "static/css/main.7302654a.css",
-    "static/js/main.0f4d7369.js"
+    "static/css/main.3b606ff6.css",
+    "static/js/main.7b82396b.js"
   ]
 }
