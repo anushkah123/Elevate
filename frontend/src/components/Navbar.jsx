@@ -56,7 +56,7 @@ export default function Navbar() {
               onClick={() => navigate('/create')}
               style={{ marginLeft: '0.5rem' }}
             >
-              Get started free
+              Get started
             </button>
           </li>
         </ul>

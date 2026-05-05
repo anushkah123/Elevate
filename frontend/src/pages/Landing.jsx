@@ -66,7 +66,7 @@ export default function Landing() {
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M9 2v14M2 9h14" stroke="white" strokeWidth="2" strokeLinecap="round" />
                 </svg>
-                Create a quiz — it's free
+                Create a quiz
               </button>
               <button
                 className="btn btn-secondary btn-lg"
@@ -134,7 +134,7 @@ export default function Landing() {
             Ready to elevate your learning?
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '18px', marginBottom: '2.5rem' }}>
-            Start for free — no credit card required.
+            Start now — no credit card required.
           </p>
           <button
             className="btn btn-lg"
