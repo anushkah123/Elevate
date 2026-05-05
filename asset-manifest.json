@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Elevate/static/css/main.7302654a.css",
-    "main.js": "/Elevate/static/js/main.e7341da4.js",
+    "main.js": "/Elevate/static/js/main.0f4d7369.js",
     "index.html": "/Elevate/index.html",
     "main.7302654a.css.map": "/Elevate/static/css/main.7302654a.css.map",
-    "main.e7341da4.js.map": "/Elevate/static/js/main.e7341da4.js.map"
+    "main.0f4d7369.js.map": "/Elevate/static/js/main.0f4d7369.js.map"
   },
   "entrypoints": [
     "static/css/main.7302654a.css",
-    "static/js/main.e7341da4.js"
+    "static/js/main.0f4d7369.js"
   ]
 }
