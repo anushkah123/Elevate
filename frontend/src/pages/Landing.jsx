@@ -96,6 +96,10 @@ export default function Landing() {
           </Link>
         </div>
       </div>
+      {/* Debug Info */}
+      <div style={{ padding: '1rem', textAlign: 'center', opacity: 0.3, fontSize: '0.7rem' }}>
+        API: {process.env.REACT_APP_API_URL || 'http://localhost:5000'}
+      </div>
     </div>
   );
 }
