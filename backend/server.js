@@ -54,6 +54,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 QuizGen backend running on port ${PORT}`);
+  console.log(`🚀 Elevate backend running on port ${PORT}`);
   console.log(`📡 NVIDIA NIM API configured: ${!!process.env.NVIDIA_NIM_API_KEY}`);
 });
