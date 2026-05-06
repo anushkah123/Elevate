@@ -14,8 +14,25 @@ async function generateQuiz({ topic, questionCount, difficulty, format, fileCont
     mixed: 'a mix of multiple choice (60%), true/false (20%), and short answer (20%)',
   };
 
+  // Smart trim: take beginning + middle + end for better coverage
+  let contentSnippet = '';
+  if (fileContent) {
+    const maxChars = 6000;
+    if (fileContent.length <= maxChars) {
+      contentSnippet = fileContent;
+    } else {
+      const chunk = Math.floor(maxChars / 3);
+      contentSnippet = [
+        fileContent.slice(0, chunk),
+        '...\n[middle section]\n...',
+        fileContent.slice(Math.floor(fileContent.length / 2) - chunk / 2, Math.floor(fileContent.length / 2) + chunk / 2),
+        '...\n[end section]\n...',
+        fileContent.slice(-chunk),
+      ].join('\n');
+    }
+  }
   const sourceText = fileContent
-    ? `Based on this content:\n\n${fileContent.slice(0, 3000)}\n\nTopic: ${topic}`
+    ? `Based on this document content:\n\n${contentSnippet}\n\nTopic: ${topic || 'the document above'}`
     : `Topic: ${topic}`;
 
   const prompt = `You are an expert quiz generator. Generate exactly ${questionCount} ${difficulty} difficulty quiz questions as ${formatInstructions[format] || formatInstructions.mcq}.
@@ -78,11 +95,28 @@ Ensure all ${questionCount} questions are unique, educational, and at ${difficul
   } catch (err) {
     if (err.response) {
       const status = err.response.status;
-      if (status === 401) throw new Error('Invalid NVIDIA NIM API key');
-      if (status === 429) throw new Error('NVIDIA NIM rate limit exceeded');
+      if (status === 401) throw new Error('Invalid NVIDIA NIM API key. Please check your .env file.');
+      if (status === 429) throw new Error('NVIDIA NIM rate limit exceeded. Please wait a moment and try again.');
+      if (status === 500 || status === 503) {
+        // Retry once with shorter content
+        console.log('⚠️  NIM returned 500, retrying with shorter prompt...');
+        try {
+          const shortPrompt = prompt.slice(0, 2000) + '\n\nReturn ONLY valid JSON as described above.';
+          const retry = await axios.post(
+            `${NVIDIA_NIM_BASE_URL}/chat/completions`,
+            { model: MODEL, messages: [{ role: 'user', content: shortPrompt }], temperature: 0.7, max_tokens: 3000 },
+            { headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, timeout: 180000 }
+          );
+          const retryContent = retry.data.choices[0].message.content;
+          const retryCleaned = retryContent.replace(/```json|```/g, '').trim();
+          return JSON.parse(retryCleaned);
+        } catch (retryErr) {
+          throw new Error('NVIDIA NIM server error. The model may be overloaded — please try again in a moment.');
+        }
+      }
       throw new Error(`NVIDIA NIM API error: ${err.response.data?.detail || err.message}`);
     }
-    if (err instanceof SyntaxError) throw new Error('AI returned invalid JSON format');
+    if (err instanceof SyntaxError) throw new Error('AI returned invalid JSON — please try again.');
     throw err;
   }
 }

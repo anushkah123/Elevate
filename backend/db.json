@@ -5,6 +5,12 @@
       "email": "abc@gmail.com",
       "password": "$2b$10$6EHC3/mU3w/l5rPu80m/Fepax10jHIp7JUs6iyh15nMMazuJIo.72",
       "id": "1778041233188"
+    },
+    {
+      "name": "anushkah",
+      "email": "hardikaranushka7@gmail.com",
+      "password": "$2b$10$3UkPHs40XL9iiI1SgScu2eaAsq3zZUGU2EPRCzdDumGISl3fk8uX6",
+      "id": "1778045742596"
     }
   ],
   "quizzes": [
@@ -583,6 +589,278 @@
       "totalQuestions": 10,
       "id": "1778042494154",
       "createdAt": "2026-05-06T04:41:34.154Z"
+    },
+    {
+      "userId": "1778041233188",
+      "title": "OSI Model and TCP/IP Fundamentals Quiz",
+      "topic": "osi model",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary purpose of the OSI model?",
+          "options": [
+            "To define a set of rules for data communication",
+            "To show how to facilitate communication between different systems without requiring changes to the logic of the underlying hardware and software",
+            "To establish a standard for network architecture",
+            "To develop a new protocol for network communication"
+          ],
+          "correctAnswer": "To show how to facilitate communication between different systems without requiring changes to the logic of the underlying hardware and software",
+          "explanation": "The OSI model is designed to facilitate communication between different systems without requiring changes to the underlying hardware and software, making it a flexible and interoperable framework for network architecture.",
+          "subtopic": "Introduction to OSI Model"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which layer of the OSI model is responsible for converting data into bits and sending it over the media?",
+          "options": [
+            "Physical Layer",
+            "Data-Link Layer",
+            "Network Layer",
+            "Transport Layer"
+          ],
+          "correctAnswer": "Physical Layer",
+          "explanation": "The Physical Layer is responsible for converting data into bits and sending it over the media, making it the layer that interacts directly with the network hardware.",
+          "subtopic": "OSI Model Layers"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the term for the formatted data that is used for peer-to-peer contact between corresponding layers in the OSI model?",
+          "options": [
+            "Protocol Data Unit (PDU)",
+            "Packet",
+            "Frame",
+            "Segment"
+          ],
+          "correctAnswer": "Protocol Data Unit (PDU)",
+          "explanation": "A Protocol Data Unit (PDU) is the formatted data that is used for peer-to-peer contact between corresponding layers in the OSI model, allowing for communication between different systems.",
+          "subtopic": "OSI Model Protocol Data Units"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following protocols is used for assigning IP addresses to devices on a network?",
+          "options": [
+            "DNS",
+            "DHCP",
+            "FTP",
+            "HTTP"
+          ],
+          "correctAnswer": "DHCP",
+          "explanation": "DHCP (Dynamic Host Configuration Protocol) is used for assigning IP addresses to devices on a network, making it an essential protocol for network configuration and management.",
+          "subtopic": "TCP/IP Protocols"
+        }
+      ],
+      "score": 25,
+      "totalQuestions": 4,
+      "id": "1778045543161",
+      "createdAt": "2026-05-06T05:32:23.161Z"
+    },
+    {
+      "userId": "1778041233188",
+      "title": "OSI Model and TCP/IP Fundamentals Quiz",
+      "topic": "osi model",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary purpose of the OSI model?",
+          "options": [
+            "To define a set of rules for data communication",
+            "To show how to facilitate communication between different systems without requiring changes to the logic of the underlying hardware and software",
+            "To establish a standard for network architecture",
+            "To develop a new protocol for network communication"
+          ],
+          "correctAnswer": "To show how to facilitate communication between different systems without requiring changes to the logic of the underlying hardware and software",
+          "explanation": "The OSI model is designed to facilitate communication between different systems without requiring changes to the underlying hardware and software, making it a flexible and interoperable framework for network architecture.",
+          "subtopic": "Introduction to OSI Model"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which layer of the OSI model is responsible for converting data into bits and sending it over the media?",
+          "options": [
+            "Physical Layer",
+            "Data-Link Layer",
+            "Network Layer",
+            "Transport Layer"
+          ],
+          "correctAnswer": "Physical Layer",
+          "explanation": "The Physical Layer is responsible for converting data into bits and sending it over the media, making it the layer that interacts directly with the network hardware.",
+          "subtopic": "OSI Model Layers"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the term for the formatted data that is used for peer-to-peer contact between corresponding layers in the OSI model?",
+          "options": [
+            "Protocol Data Unit (PDU)",
+            "Packet",
+            "Frame",
+            "Segment"
+          ],
+          "correctAnswer": "Protocol Data Unit (PDU)",
+          "explanation": "A Protocol Data Unit (PDU) is the formatted data that is used for peer-to-peer contact between corresponding layers in the OSI model, allowing for communication between different systems.",
+          "subtopic": "OSI Model Protocol Data Units"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following protocols is used for assigning IP addresses to devices on a network?",
+          "options": [
+            "DNS",
+            "DHCP",
+            "FTP",
+            "HTTP"
+          ],
+          "correctAnswer": "DHCP",
+          "explanation": "DHCP (Dynamic Host Configuration Protocol) is used for assigning IP addresses to devices on a network, making it an essential protocol for network configuration and management.",
+          "subtopic": "TCP/IP Protocols"
+        }
+      ],
+      "score": 25,
+      "totalQuestions": 4,
+      "id": "1778045543177",
+      "createdAt": "2026-05-06T05:32:23.177Z"
+    },
+    {
+      "userId": "1778045742596",
+      "title": "Blackpink Quiz",
+      "topic": "blackpink",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the name of Blackpink's debut single?",
+          "options": [
+            "Whistle",
+            "Boombayah",
+            "As If It's Your Last",
+            "Ddu-Du Ddu-Du"
+          ],
+          "correctAnswer": "Whistle",
+          "explanation": "Blackpink debuted with their single album 'Square One' which included the songs 'Whistle' and 'Boombayah'.",
+          "subtopic": "Discography"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which Blackpink member is known for being the main rapper?",
+          "options": [
+            "Lisa",
+            "Jisoo",
+            "Rosé",
+            "Jennie"
+          ],
+          "correctAnswer": "Jennie",
+          "explanation": "Although all members can rap, Jennie is often considered the main rapper of the group due to her prominent rap parts in many songs.",
+          "subtopic": "Members"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the name of Blackpink's first studio album released in 2020?",
+          "options": [
+            "The Album",
+            "Square One",
+            "Kill This Love",
+            "Blackpink in Your Area"
+          ],
+          "correctAnswer": "The Album",
+          "explanation": "Blackpink released their first studio album 'The Album' on October 2, 2020.",
+          "subtopic": "Discography"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "In what year did Blackpink make their debut under YG Entertainment?",
+          "options": [
+            "2016",
+            "2017",
+            "2018",
+            "2019"
+          ],
+          "correctAnswer": "2016",
+          "explanation": "Blackpink officially debuted on August 8, 2016, with their single album 'Square One'.",
+          "subtopic": "History"
+        }
+      ],
+      "score": 50,
+      "totalQuestions": 4,
+      "id": "1778045800421",
+      "createdAt": "2026-05-06T05:36:40.421Z"
+    },
+    {
+      "userId": "1778045742596",
+      "title": "Blackpink Quiz",
+      "topic": "blackpink",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the name of Blackpink's debut single?",
+          "options": [
+            "Whistle",
+            "Boombayah",
+            "As If It's Your Last",
+            "Ddu-Du Ddu-Du"
+          ],
+          "correctAnswer": "Whistle",
+          "explanation": "Blackpink debuted with their single album 'Square One' which included the songs 'Whistle' and 'Boombayah'.",
+          "subtopic": "Discography"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which Blackpink member is known for being the main rapper?",
+          "options": [
+            "Lisa",
+            "Jisoo",
+            "Rosé",
+            "Jennie"
+          ],
+          "correctAnswer": "Jennie",
+          "explanation": "Although all members can rap, Jennie is often considered the main rapper of the group due to her prominent rap parts in many songs.",
+          "subtopic": "Members"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the name of Blackpink's first studio album released in 2020?",
+          "options": [
+            "The Album",
+            "Square One",
+            "Kill This Love",
+            "Blackpink in Your Area"
+          ],
+          "correctAnswer": "The Album",
+          "explanation": "Blackpink released their first studio album 'The Album' on October 2, 2020.",
+          "subtopic": "Discography"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "In what year did Blackpink make their debut under YG Entertainment?",
+          "options": [
+            "2016",
+            "2017",
+            "2018",
+            "2019"
+          ],
+          "correctAnswer": "2016",
+          "explanation": "Blackpink officially debuted on August 8, 2016, with their single album 'Square One'.",
+          "subtopic": "History"
+        }
+      ],
+      "score": 50,
+      "totalQuestions": 4,
+      "id": "1778045800428",
+      "createdAt": "2026-05-06T05:36:40.428Z"
     }
   ]
 }
