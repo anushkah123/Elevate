@@ -60,7 +60,7 @@ Ensure all ${questionCount} questions are unique, educational, and at ${difficul
           Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
-        timeout: 120000,
+        timeout: 180000,
       }
     );
     console.timeEnd('nvidia-api');

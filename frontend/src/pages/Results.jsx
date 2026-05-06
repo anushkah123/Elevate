@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useQuiz } from '../context/QuizContext';
+import { useAuth } from '../context/AuthContext';
+import { saveQuiz } from '../services/api';
 import { Trophy, RefreshCw, Target, BookOpen, ChevronRight, RotateCcw } from 'lucide-react';
 
 function Flashcard({ question, index }) {
@@ -26,8 +28,31 @@ function Flashcard({ question, index }) {
 export default function Results() {
   const navigate = useNavigate();
   const { quizResults } = useQuiz();
+  const { user } = useAuth();
   const [flashcardMode, setFlashcardMode] = useState(false);
   const [fcIdx, setFcIdx] = useState(0);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    if (quizResults && user && !saved) {
+      const persistResults = async () => {
+        try {
+          await saveQuiz({
+            title: quizResults.quiz.title,
+            topic: quizResults.topic,
+            difficulty: quizResults.difficulty,
+            questions: quizResults.quiz.questions,
+            score: quizResults.score,
+            totalQuestions: quizResults.total
+          });
+          setSaved(true);
+        } catch (err) {
+          console.error('Failed to save quiz results:', err);
+        }
+      };
+      persistResults();
+    }
+  }, [quizResults, user, saved]);
 
   if (!quizResults) {
     return (

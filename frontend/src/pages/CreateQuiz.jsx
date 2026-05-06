@@ -20,29 +20,53 @@ export default function CreateQuiz() {
   const [format, setFormat] = useState('mcq');
   const [difficulty, setDifficulty] = useState('medium');
   const [count, setCount] = useState(10);
-  const [fileContent, setFileContent] = useState('');
+  const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState('');
   const [error, setError] = useState('');
   const fileRef = useRef();
 
-  const handleFile = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    setFileName(file.name);
-    const text = await file.text();
-    setFileContent(text.slice(0, 5000));
+  const handleFile = (e) => {
+    const selectedFile = e.target.files[0];
+    if (!selectedFile) return;
+    setFileName(selectedFile.name);
+    setFile(selectedFile);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!topic.trim()) { setError('Please enter a topic.'); return; }
     setLoading(true); setError('');
+    
+    // Cycle through status messages
+    const statusMessages = [
+      file ? 'Reading document...' : 'Analyzing topic...',
+      'Connecting to NVIDIA NIM LLaMA 3.3...',
+      'Generating high-quality questions...',
+      'Structuring your quiz...',
+      'Almost there...'
+    ];
+    let msgIndex = 0;
+    setStatus(statusMessages[0]);
+    const interval = setInterval(() => {
+      msgIndex = (msgIndex + 1) % statusMessages.length;
+      setStatus(statusMessages[msgIndex]);
+    }, 5000);
+
     try {
-      const res = await generateQuiz({ topic, questionCount: count, difficulty, format, fileContent: fileContent || undefined });
+      const res = await generateQuiz({ 
+        topic, 
+        questionCount: count, 
+        difficulty, 
+        format, 
+        file: file || undefined 
+      });
       setCurrentQuiz({ ...res.data.quiz, settings: { topic, difficulty, format, count } });
+      clearInterval(interval);
       navigate('/quiz');
     } catch (err) {
+      clearInterval(interval);
       setError(err.response?.data?.error || 'Failed to generate quiz. Make sure your backend is running.');
     } finally {
       setLoading(false);
@@ -83,17 +107,17 @@ export default function CreateQuiz() {
 
               <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1rem' }}>
                 <p className="form-label mb-1">Or upload a document (optional)</p>
-                <input ref={fileRef} type="file" accept=".txt,.md,.pdf,.docx" onChange={handleFile} style={{ display: 'none' }} />
+                <input ref={fileRef} type="file" accept=".txt,.md,.pdf,.docx,.pptx,.csv,.png,.jpg,.jpeg,.webp,.bmp" onChange={handleFile} style={{ display: 'none' }} />
                 {fileName ? (
                   <div className="flex items-center gap-1">
                     <span className="chip chip-purple">{fileName}</span>
-                    <button type="button" className="btn btn-ghost btn-sm" onClick={() => { setFileName(''); setFileContent(''); fileRef.current.value = ''; }}>
+                    <button type="button" className="btn btn-ghost btn-sm" onClick={() => { setFileName(''); setFile(null); fileRef.current.value = ''; }}>
                       <X size={14} /> Remove
                     </button>
                   </div>
                 ) : (
                   <button type="button" className="btn btn-ghost btn-sm" onClick={() => fileRef.current.click()}>
-                    <Upload size={14} /> Upload File (.txt, .md)
+                    <Upload size={14} /> Upload File (PDF, Word, PPT, CSV, Image)
                   </button>
                 )}
               </div>
@@ -158,7 +182,7 @@ export default function CreateQuiz() {
 
             <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }} disabled={loading}>
               {loading ? (
-                <><div className="spinner" style={{ width: 20, height: 20, margin: 0, borderWidth: 2 }} /> Generating with NVIDIA NIM...</>
+                <><div className="spinner" style={{ width: 20, height: 20, margin: 0, borderWidth: 2 }} /> {status}</>
               ) : (
                 <><Zap size={18} /> Generate Quiz</>
               )}

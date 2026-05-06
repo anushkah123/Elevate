@@ -1,0 +1,588 @@
+{
+  "users": [
+    {
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "$2b$10$6EHC3/mU3w/l5rPu80m/Fepax10jHIp7JUs6iyh15nMMazuJIo.72",
+      "id": "1778041233188"
+    }
+  ],
+  "quizzes": [
+    {
+      "userId": "1778041233188",
+      "title": "Ensemble Learning Quiz",
+      "topic": "ensemble learning",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary goal of ensemble learning?",
+          "options": [
+            "To reduce overfitting",
+            "To increase model complexity",
+            "To improve model interpretability",
+            "To reduce training time"
+          ],
+          "correctAnswer": "To reduce overfitting",
+          "explanation": "Ensemble learning aims to combine multiple models to reduce overfitting and improve overall performance.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 2,
+          "type": "truefalse",
+          "question": "Bagging and boosting are two types of ensemble learning techniques that are similar in approach.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "False",
+          "explanation": "Bagging and boosting are two distinct ensemble learning techniques with different approaches.",
+          "subtopic": "Bagging and Boosting"
+        },
+        {
+          "id": 3,
+          "type": "shortanswer",
+          "question": "What is the name of the popular ensemble learning algorithm that combines multiple weak models to create a strong predictive model?",
+          "options": [],
+          "correctAnswer": "AdaBoost",
+          "explanation": "AdaBoost is a popular ensemble learning algorithm that combines multiple weak models to create a strong predictive model.",
+          "subtopic": "Boosting Algorithms"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following ensemble learning techniques is known for its ability to handle high-dimensional data?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Random Forest",
+            "Gradient Boosting"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is an ensemble learning technique that is known for its ability to handle high-dimensional data.",
+          "subtopic": "Random Forest"
+        },
+        {
+          "id": 5,
+          "type": "truefalse",
+          "question": "Ensemble learning can only be applied to classification problems.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "False",
+          "explanation": "Ensemble learning can be applied to both classification and regression problems.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 6,
+          "type": "mcq",
+          "question": "What is the term for the process of training multiple models on different subsets of the training data?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Stacking",
+            "Cross-validation"
+          ],
+          "correctAnswer": "Bagging",
+          "explanation": "Bagging is the process of training multiple models on different subsets of the training data.",
+          "subtopic": "Bagging and Boosting"
+        },
+        {
+          "id": 7,
+          "type": "shortanswer",
+          "question": "What is the name of the ensemble learning technique that combines the predictions of multiple models using a meta-model?",
+          "options": [],
+          "correctAnswer": "Stacking",
+          "explanation": "Stacking is an ensemble learning technique that combines the predictions of multiple models using a meta-model.",
+          "subtopic": "Stacking"
+        },
+        {
+          "id": 8,
+          "type": "mcq",
+          "question": "Which of the following is a benefit of using ensemble learning?",
+          "options": [
+            "Improved model interpretability",
+            "Increased risk of overfitting",
+            "Reduced training time",
+            "Improved robustness to outliers"
+          ],
+          "correctAnswer": "Improved robustness to outliers",
+          "explanation": "Ensemble learning can improve the robustness of a model to outliers.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 9,
+          "type": "truefalse",
+          "question": "Gradient Boosting is a type of ensemble learning technique that uses a sequential approach to combine models.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Gradient Boosting is a type of ensemble learning technique that uses a sequential approach to combine models.",
+          "subtopic": "Boosting Algorithms"
+        },
+        {
+          "id": 10,
+          "type": "mcq",
+          "question": "Which of the following ensemble learning techniques is known for its ability to handle missing values?",
+          "options": [
+            "Random Forest",
+            "Gradient Boosting",
+            "AdaBoost",
+            "K-Nearest Neighbors"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is an ensemble learning technique that is known for its ability to handle missing values.",
+          "subtopic": "Random Forest"
+        }
+      ],
+      "score": 60,
+      "totalQuestions": 10,
+      "id": "1778041398263",
+      "createdAt": "2026-05-06T04:23:18.263Z"
+    },
+    {
+      "userId": "1778041233188",
+      "title": "Ensemble Learning Quiz",
+      "topic": "ensemble learning",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary goal of ensemble learning?",
+          "options": [
+            "To reduce overfitting",
+            "To increase model complexity",
+            "To improve model interpretability",
+            "To reduce training time"
+          ],
+          "correctAnswer": "To reduce overfitting",
+          "explanation": "Ensemble learning aims to combine multiple models to reduce overfitting and improve overall performance.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 2,
+          "type": "truefalse",
+          "question": "Bagging and boosting are two types of ensemble learning techniques that are similar in approach.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "False",
+          "explanation": "Bagging and boosting are two distinct ensemble learning techniques with different approaches.",
+          "subtopic": "Bagging and Boosting"
+        },
+        {
+          "id": 3,
+          "type": "shortanswer",
+          "question": "What is the name of the popular ensemble learning algorithm that combines multiple weak models to create a strong predictive model?",
+          "options": [],
+          "correctAnswer": "AdaBoost",
+          "explanation": "AdaBoost is a popular ensemble learning algorithm that combines multiple weak models to create a strong predictive model.",
+          "subtopic": "Boosting Algorithms"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following ensemble learning techniques is known for its ability to handle high-dimensional data?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Random Forest",
+            "Gradient Boosting"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is an ensemble learning technique that is known for its ability to handle high-dimensional data.",
+          "subtopic": "Random Forest"
+        },
+        {
+          "id": 5,
+          "type": "truefalse",
+          "question": "Ensemble learning can only be applied to classification problems.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "False",
+          "explanation": "Ensemble learning can be applied to both classification and regression problems.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 6,
+          "type": "mcq",
+          "question": "What is the term for the process of training multiple models on different subsets of the training data?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Stacking",
+            "Cross-validation"
+          ],
+          "correctAnswer": "Bagging",
+          "explanation": "Bagging is the process of training multiple models on different subsets of the training data.",
+          "subtopic": "Bagging and Boosting"
+        },
+        {
+          "id": 7,
+          "type": "shortanswer",
+          "question": "What is the name of the ensemble learning technique that combines the predictions of multiple models using a meta-model?",
+          "options": [],
+          "correctAnswer": "Stacking",
+          "explanation": "Stacking is an ensemble learning technique that combines the predictions of multiple models using a meta-model.",
+          "subtopic": "Stacking"
+        },
+        {
+          "id": 8,
+          "type": "mcq",
+          "question": "Which of the following is a benefit of using ensemble learning?",
+          "options": [
+            "Improved model interpretability",
+            "Increased risk of overfitting",
+            "Reduced training time",
+            "Improved robustness to outliers"
+          ],
+          "correctAnswer": "Improved robustness to outliers",
+          "explanation": "Ensemble learning can improve the robustness of a model to outliers.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 9,
+          "type": "truefalse",
+          "question": "Gradient Boosting is a type of ensemble learning technique that uses a sequential approach to combine models.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Gradient Boosting is a type of ensemble learning technique that uses a sequential approach to combine models.",
+          "subtopic": "Boosting Algorithms"
+        },
+        {
+          "id": 10,
+          "type": "mcq",
+          "question": "Which of the following ensemble learning techniques is known for its ability to handle missing values?",
+          "options": [
+            "Random Forest",
+            "Gradient Boosting",
+            "AdaBoost",
+            "K-Nearest Neighbors"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is an ensemble learning technique that is known for its ability to handle missing values.",
+          "subtopic": "Random Forest"
+        }
+      ],
+      "score": 60,
+      "totalQuestions": 10,
+      "id": "1778041398270",
+      "createdAt": "2026-05-06T04:23:18.270Z"
+    },
+    {
+      "userId": "1778041233188",
+      "title": "Ensemble Learning Quiz",
+      "topic": "ensemble learning",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary goal of using ensemble techniques in machine learning?",
+          "options": [
+            "To reduce the complexity of models",
+            "To improve the accuracy of predictions",
+            "To decrease the training time of models",
+            "To increase the interpretability of models"
+          ],
+          "correctAnswer": "To improve the accuracy of predictions",
+          "explanation": "Ensemble techniques combine the predictions of multiple models to improve the overall accuracy and robustness of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which of the following ensemble techniques involves training multiple models independently using different subsets of the training data?",
+          "options": [
+            "Boosting",
+            "Bagging",
+            "Stacking",
+            "Voting"
+          ],
+          "correctAnswer": "Bagging",
+          "explanation": "Bagging, or Bootstrap Aggregating, involves training multiple models independently using different subsets of the training data, which are created using bootstrap sampling.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the main advantage of using bagging in ensemble learning?",
+          "options": [
+            "Reducing bias",
+            "Reducing variance",
+            "Improving interpretability",
+            "Increasing training time"
+          ],
+          "correctAnswer": "Reducing variance",
+          "explanation": "Bagging mainly reduces variance by averaging the predictions of multiple models, which helps to improve the stability and robustness of the predictions.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following is a popular example of a bagging ensemble technique?",
+          "options": [
+            "Random Forest",
+            "Gradient Boosting",
+            "Support Vector Machine",
+            "K-Nearest Neighbors"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is a popular example of a bagging ensemble technique, which involves training multiple decision trees on different subsets of the training data and combining their predictions.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 5,
+          "type": "mcq",
+          "question": "What is the main idea behind the boosting ensemble technique?",
+          "options": [
+            "To give more importance to correctly classified examples",
+            "To give more importance to wrongly classified examples",
+            "To reduce the complexity of models",
+            "To increase the training time of models"
+          ],
+          "correctAnswer": "To give more importance to wrongly classified examples",
+          "explanation": "The main idea behind boosting is to give more importance to wrongly classified examples, so that the subsequent models can focus on correcting the mistakes made by the previous models.",
+          "subtopic": "Boosting"
+        },
+        {
+          "id": 6,
+          "type": "mcq",
+          "question": "Which of the following ensemble techniques involves training models sequentially, with each new model trying to correct the mistakes made by the previous model?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Stacking",
+            "Voting"
+          ],
+          "correctAnswer": "Boosting",
+          "explanation": "Boosting involves training models sequentially, with each new model trying to correct the mistakes made by the previous model, which helps to reduce bias and improve the overall accuracy of the predictions.",
+          "subtopic": "Boosting"
+        },
+        {
+          "id": 7,
+          "type": "mcq",
+          "question": "What is the advantage of using ensemble techniques in machine learning, in terms of handling noisy data?",
+          "options": [
+            "Ensemble techniques are more sensitive to noisy data",
+            "Ensemble techniques are less sensitive to noisy data",
+            "Ensemble techniques are not affected by noisy data",
+            "Ensemble techniques can only handle noise in the training data"
+          ],
+          "correctAnswer": "Ensemble techniques are less sensitive to noisy data",
+          "explanation": "Ensemble techniques are less sensitive to noisy data, as the combination of multiple models helps to average out the noise and improve the overall robustness of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 8,
+          "type": "mcq",
+          "question": "Which of the following is a disadvantage of using bagging in ensemble learning?",
+          "options": [
+            "Requires less memory",
+            "Requires more memory",
+            "Improves interpretability",
+            "Reduces training time"
+          ],
+          "correctAnswer": "Requires more memory",
+          "explanation": "Bagging requires more memory, as it involves training multiple models independently, which can be computationally expensive and require large amounts of memory.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 9,
+          "type": "mcq",
+          "question": "What is the main difference between bagging and boosting ensemble techniques?",
+          "options": [
+            "Bagging reduces bias, while boosting reduces variance",
+            "Bagging reduces variance, while boosting reduces bias",
+            "Bagging is used for regression, while boosting is used for classification",
+            "Bagging is used for classification, while boosting is used for regression"
+          ],
+          "correctAnswer": "Bagging reduces variance, while boosting reduces bias",
+          "explanation": "The main difference between bagging and boosting is that bagging reduces variance by averaging the predictions of multiple models, while boosting reduces bias by giving more importance to wrongly classified examples.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 10,
+          "type": "mcq",
+          "question": "Which of the following is an advantage of using ensemble techniques in machine learning, in terms of model robustness?",
+          "options": [
+            "Ensemble techniques can make models more prone to overfitting",
+            "Ensemble techniques can reduce the robustness of models",
+            "Ensemble techniques can improve the robustness of models",
+            "Ensemble techniques have no effect on model robustness"
+          ],
+          "correctAnswer": "Ensemble techniques can improve the robustness of models",
+          "explanation": "Ensemble techniques can improve the robustness of models, as the combination of multiple models helps to average out the noise and improve the overall stability of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        }
+      ],
+      "score": 50,
+      "totalQuestions": 10,
+      "id": "1778042494144",
+      "createdAt": "2026-05-06T04:41:34.144Z"
+    },
+    {
+      "userId": "1778041233188",
+      "title": "Ensemble Learning Quiz",
+      "topic": "ensemble learning",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary goal of using ensemble techniques in machine learning?",
+          "options": [
+            "To reduce the complexity of models",
+            "To improve the accuracy of predictions",
+            "To decrease the training time of models",
+            "To increase the interpretability of models"
+          ],
+          "correctAnswer": "To improve the accuracy of predictions",
+          "explanation": "Ensemble techniques combine the predictions of multiple models to improve the overall accuracy and robustness of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which of the following ensemble techniques involves training multiple models independently using different subsets of the training data?",
+          "options": [
+            "Boosting",
+            "Bagging",
+            "Stacking",
+            "Voting"
+          ],
+          "correctAnswer": "Bagging",
+          "explanation": "Bagging, or Bootstrap Aggregating, involves training multiple models independently using different subsets of the training data, which are created using bootstrap sampling.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the main advantage of using bagging in ensemble learning?",
+          "options": [
+            "Reducing bias",
+            "Reducing variance",
+            "Improving interpretability",
+            "Increasing training time"
+          ],
+          "correctAnswer": "Reducing variance",
+          "explanation": "Bagging mainly reduces variance by averaging the predictions of multiple models, which helps to improve the stability and robustness of the predictions.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which of the following is a popular example of a bagging ensemble technique?",
+          "options": [
+            "Random Forest",
+            "Gradient Boosting",
+            "Support Vector Machine",
+            "K-Nearest Neighbors"
+          ],
+          "correctAnswer": "Random Forest",
+          "explanation": "Random Forest is a popular example of a bagging ensemble technique, which involves training multiple decision trees on different subsets of the training data and combining their predictions.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 5,
+          "type": "mcq",
+          "question": "What is the main idea behind the boosting ensemble technique?",
+          "options": [
+            "To give more importance to correctly classified examples",
+            "To give more importance to wrongly classified examples",
+            "To reduce the complexity of models",
+            "To increase the training time of models"
+          ],
+          "correctAnswer": "To give more importance to wrongly classified examples",
+          "explanation": "The main idea behind boosting is to give more importance to wrongly classified examples, so that the subsequent models can focus on correcting the mistakes made by the previous models.",
+          "subtopic": "Boosting"
+        },
+        {
+          "id": 6,
+          "type": "mcq",
+          "question": "Which of the following ensemble techniques involves training models sequentially, with each new model trying to correct the mistakes made by the previous model?",
+          "options": [
+            "Bagging",
+            "Boosting",
+            "Stacking",
+            "Voting"
+          ],
+          "correctAnswer": "Boosting",
+          "explanation": "Boosting involves training models sequentially, with each new model trying to correct the mistakes made by the previous model, which helps to reduce bias and improve the overall accuracy of the predictions.",
+          "subtopic": "Boosting"
+        },
+        {
+          "id": 7,
+          "type": "mcq",
+          "question": "What is the advantage of using ensemble techniques in machine learning, in terms of handling noisy data?",
+          "options": [
+            "Ensemble techniques are more sensitive to noisy data",
+            "Ensemble techniques are less sensitive to noisy data",
+            "Ensemble techniques are not affected by noisy data",
+            "Ensemble techniques can only handle noise in the training data"
+          ],
+          "correctAnswer": "Ensemble techniques are less sensitive to noisy data",
+          "explanation": "Ensemble techniques are less sensitive to noisy data, as the combination of multiple models helps to average out the noise and improve the overall robustness of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 8,
+          "type": "mcq",
+          "question": "Which of the following is a disadvantage of using bagging in ensemble learning?",
+          "options": [
+            "Requires less memory",
+            "Requires more memory",
+            "Improves interpretability",
+            "Reduces training time"
+          ],
+          "correctAnswer": "Requires more memory",
+          "explanation": "Bagging requires more memory, as it involves training multiple models independently, which can be computationally expensive and require large amounts of memory.",
+          "subtopic": "Bagging"
+        },
+        {
+          "id": 9,
+          "type": "mcq",
+          "question": "What is the main difference between bagging and boosting ensemble techniques?",
+          "options": [
+            "Bagging reduces bias, while boosting reduces variance",
+            "Bagging reduces variance, while boosting reduces bias",
+            "Bagging is used for regression, while boosting is used for classification",
+            "Bagging is used for classification, while boosting is used for regression"
+          ],
+          "correctAnswer": "Bagging reduces variance, while boosting reduces bias",
+          "explanation": "The main difference between bagging and boosting is that bagging reduces variance by averaging the predictions of multiple models, while boosting reduces bias by giving more importance to wrongly classified examples.",
+          "subtopic": "Introduction to Ensemble Learning"
+        },
+        {
+          "id": 10,
+          "type": "mcq",
+          "question": "Which of the following is an advantage of using ensemble techniques in machine learning, in terms of model robustness?",
+          "options": [
+            "Ensemble techniques can make models more prone to overfitting",
+            "Ensemble techniques can reduce the robustness of models",
+            "Ensemble techniques can improve the robustness of models",
+            "Ensemble techniques have no effect on model robustness"
+          ],
+          "correctAnswer": "Ensemble techniques can improve the robustness of models",
+          "explanation": "Ensemble techniques can improve the robustness of models, as the combination of multiple models helps to average out the noise and improve the overall stability of the predictions.",
+          "subtopic": "Introduction to Ensemble Learning"
+        }
+      ],
+      "score": 50,
+      "totalQuestions": 10,
+      "id": "1778042494154",
+      "createdAt": "2026-05-06T04:41:34.154Z"
+    }
+  ]
+}

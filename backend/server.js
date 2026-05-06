@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 
 const quizRoutes = require('./routes/quiz');
 const healthRoutes = require('./routes/health');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,12 +18,12 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '10mb' }));
 
 // CORS
-// CORS - allow GitHub Pages + localhost
 app.use(cors({
   origin: (origin, callback) => {
     const allowed = [
       'https://anushkah123.github.io',
       'http://localhost:3000',
+      'http://127.0.0.1:3000',
     ];
     if (!origin || allowed.includes(origin)) return callback(null, true);
     callback(new Error('Not allowed by CORS'));
@@ -32,15 +33,18 @@ app.use(cors({
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 min
-  max: 50,
+  windowMs: 15 * 60 * 1000,
+  max: 100,
   message: { error: 'Too many requests, please try again later.' },
 });
 app.use('/api/', limiter);
 
 // Routes
 app.use('/api/health', healthRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/quiz', quizRoutes);
+
+console.log('✅ Using Local JSON Database (db.json)');
 
 // 404
 app.use((req, res) => {
