@@ -44,7 +44,7 @@ app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/quiz', quizRoutes);
 
-console.log('✅ Using Local JSON Database (db.json)');
+console.log('✅ Database Service: Firestore (initialized if FIREBASE_SERVICE_ACCOUNT is set)');
 
 // 404
 app.use((req, res) => {

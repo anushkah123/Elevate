@@ -137,7 +137,7 @@ router.post('/generate', upload.single('file'), async (req, res) => {
 /** POST /api/quiz/save */
 router.post('/save', auth, async (req, res) => {
   try {
-    const quiz = db.saveQuiz({ userId: req.user.id, ...req.body });
+    const quiz = await db.saveQuiz({ userId: req.user.id, ...req.body });
     res.json({ success: true, quiz });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -145,9 +145,9 @@ router.post('/save', auth, async (req, res) => {
 });
 
 /** GET /api/quiz/history */
-router.get('/history', auth, (req, res) => {
+router.get('/history', auth, async (req, res) => {
   try {
-    const quizzes = db.getQuizzesByUserId(req.user.id);
+    const quizzes = await db.getQuizzesByUserId(req.user.id);
     res.json({ success: true, quizzes });
   } catch (err) {
     res.status(500).json({ error: err.message });

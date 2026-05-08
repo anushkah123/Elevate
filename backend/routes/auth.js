@@ -9,11 +9,11 @@ router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
     
-    let user = db.findUserByEmail(email);
+    let user = await db.findUserByEmail(email);
     if (user) return res.status(400).json({ error: 'User already exists' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    user = db.saveUser({ name, email, password: hashedPassword });
+    user = await db.saveUser({ name, email, password: hashedPassword });
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || 'secret_key', { expiresIn: '7d' });
     res.json({ token, user: { id: user.id, name: user.name, email: user.email } });
@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    const user = db.findUserByEmail(email);
+    const user = await db.findUserByEmail(email);
     if (!user) return res.status(400).json({ error: 'Invalid credentials' });
 
     const isMatch = await bcrypt.compare(password, user.password);

@@ -861,6 +861,142 @@
       "totalQuestions": 4,
       "id": "1778045800428",
       "createdAt": "2026-05-06T05:36:40.428Z"
+    },
+    {
+      "userId": "1778045742596",
+      "title": "OSI and TCP/IP Models Quiz",
+      "topic": "osui models",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary function of the Network Layer in the OSI model?",
+          "options": [
+            "Routing and switching",
+            "Error checking and correction",
+            "Data encryption and decryption",
+            "Data compression and expansion"
+          ],
+          "correctAnswer": "Routing and switching",
+          "explanation": "The Network Layer is responsible for routing and switching data between devices on different networks.",
+          "subtopic": "OSI Model Layers"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which protocol is used for host-to-host delivery in the TCP/IP suite?",
+          "options": [
+            "TCP",
+            "UDP",
+            "IP",
+            "ICMP"
+          ],
+          "correctAnswer": "IP",
+          "explanation": "IP (Internet Protocol) is responsible for host-to-host delivery in the TCP/IP suite.",
+          "subtopic": "TCP/IP Protocol Suite"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the purpose of the DHCP discover message?",
+          "options": [
+            "To request an IP address from a DHCP server",
+            "To offer an IP address to a DHCP client",
+            "To acknowledge an IP address assignment",
+            "To release an IP address"
+          ],
+          "correctAnswer": "To request an IP address from a DHCP server",
+          "explanation": "The DHCP discover message is sent by a client to discover available DHCP servers and request an IP address.",
+          "subtopic": "DHCP Operation"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which layer of the TCP/IP model is responsible for providing a best-effort delivery service?",
+          "options": [
+            "Application Layer",
+            "Transport Layer",
+            "Internet Layer",
+            "Link Layer"
+          ],
+          "correctAnswer": "Internet Layer",
+          "explanation": "The Internet Layer, which includes the IP protocol, provides a best-effort delivery service.",
+          "subtopic": "TCP/IP Model Layers"
+        }
+      ],
+      "score": 25,
+      "totalQuestions": 4,
+      "id": "1778046329602",
+      "createdAt": "2026-05-06T05:45:29.603Z"
+    },
+    {
+      "userId": "1778045742596",
+      "title": "OSI and TCP/IP Models Quiz",
+      "topic": "osui models",
+      "difficulty": "medium",
+      "questions": [
+        {
+          "id": 1,
+          "type": "mcq",
+          "question": "What is the primary function of the Network Layer in the OSI model?",
+          "options": [
+            "Routing and switching",
+            "Error checking and correction",
+            "Data encryption and decryption",
+            "Data compression and expansion"
+          ],
+          "correctAnswer": "Routing and switching",
+          "explanation": "The Network Layer is responsible for routing and switching data between devices on different networks.",
+          "subtopic": "OSI Model Layers"
+        },
+        {
+          "id": 2,
+          "type": "mcq",
+          "question": "Which protocol is used for host-to-host delivery in the TCP/IP suite?",
+          "options": [
+            "TCP",
+            "UDP",
+            "IP",
+            "ICMP"
+          ],
+          "correctAnswer": "IP",
+          "explanation": "IP (Internet Protocol) is responsible for host-to-host delivery in the TCP/IP suite.",
+          "subtopic": "TCP/IP Protocol Suite"
+        },
+        {
+          "id": 3,
+          "type": "mcq",
+          "question": "What is the purpose of the DHCP discover message?",
+          "options": [
+            "To request an IP address from a DHCP server",
+            "To offer an IP address to a DHCP client",
+            "To acknowledge an IP address assignment",
+            "To release an IP address"
+          ],
+          "correctAnswer": "To request an IP address from a DHCP server",
+          "explanation": "The DHCP discover message is sent by a client to discover available DHCP servers and request an IP address.",
+          "subtopic": "DHCP Operation"
+        },
+        {
+          "id": 4,
+          "type": "mcq",
+          "question": "Which layer of the TCP/IP model is responsible for providing a best-effort delivery service?",
+          "options": [
+            "Application Layer",
+            "Transport Layer",
+            "Internet Layer",
+            "Link Layer"
+          ],
+          "correctAnswer": "Internet Layer",
+          "explanation": "The Internet Layer, which includes the IP protocol, provides a best-effort delivery service.",
+          "subtopic": "TCP/IP Model Layers"
+        }
+      ],
+      "score": 25,
+      "totalQuestions": 4,
+      "id": "1778046329614",
+      "createdAt": "2026-05-06T05:45:29.614Z"
     }
   ]
 }

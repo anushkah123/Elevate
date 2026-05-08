@@ -1,50 +1,46 @@
-const fs = require('fs');
-const path = require('path');
-
-const DB_PATH = path.join(__dirname, '..', 'db.json');
-
-// Initialize database if it doesn't exist
-if (!fs.existsSync(DB_PATH)) {
-  fs.writeFileSync(DB_PATH, JSON.stringify({ users: [], quizzes: [] }, null, 2));
-}
-
-const readDB = () => {
-  const data = fs.readFileSync(DB_PATH, 'utf-8');
-  return JSON.parse(data);
-};
-
-const writeDB = (data) => {
-  fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
-};
+const db = require('./firebase');
 
 module.exports = {
   // User operations
-  findUserByEmail: (email) => {
-    const db = readDB();
-    return db.users.find(u => u.email === email);
+  findUserByEmail: async (email) => {
+    if (!db) return null;
+    const snapshot = await db.collection('users').where('email', '==', email).get();
+    if (snapshot.empty) return null;
+    const doc = snapshot.docs[0];
+    return { id: doc.id, ...doc.data() };
   },
-  findUserById: (id) => {
-    const db = readDB();
-    return db.users.find(u => u.id === id);
+
+  findUserById: async (id) => {
+    if (!db) return null;
+    const doc = await db.collection('users').doc(id).get();
+    return doc.exists ? { id: doc.id, ...doc.data() } : null;
   },
-  saveUser: (user) => {
-    const db = readDB();
-    const newUser = { ...user, id: Date.now().toString() };
-    db.users.push(newUser);
-    writeDB(db);
-    return newUser;
+
+  saveUser: async (user) => {
+    if (!db) throw new Error('Firestore not initialized');
+    const docRef = await db.collection('users').add(user);
+    return { id: docRef.id, ...user };
   },
 
   // Quiz operations
-  saveQuiz: (quiz) => {
-    const db = readDB();
-    const newQuiz = { ...quiz, id: Date.now().toString(), createdAt: new Date().toISOString() };
-    db.quizzes.push(newQuiz);
-    writeDB(db);
-    return newQuiz;
+  saveQuiz: async (quiz) => {
+    if (!db) throw new Error('Firestore not initialized');
+    const newQuiz = { 
+      ...quiz, 
+      createdAt: new Date().toISOString() 
+    };
+    const docRef = await db.collection('quizzes').add(newQuiz);
+    return { id: docRef.id, ...newQuiz };
   },
-  getQuizzesByUserId: (userId) => {
-    const db = readDB();
-    return db.quizzes.filter(q => q.userId === userId).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+  getQuizzesByUserId: async (userId) => {
+    if (!db) return [];
+    const snapshot = await db.collection('quizzes')
+      .where('userId', '==', userId)
+      .orderBy('createdAt', 'desc')
+      .get();
+    
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   }
 };
+
