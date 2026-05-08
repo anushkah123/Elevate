@@ -98,7 +98,7 @@ header {
 
 .contact-item i {
     font-size: 14px;
-    color: #9CA3AF; /* Subtle icon color from image */
+    color: var(--primary); /* Making icons more visible with the primary color */
 }
 
 .contact-item a {
