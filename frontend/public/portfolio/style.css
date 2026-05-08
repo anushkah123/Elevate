@@ -96,9 +96,11 @@ header {
     gap: 6px;
 }
 
-.contact-item i {
-    font-size: 14px;
-    color: var(--primary); /* Making icons more visible with the primary color */
+.contact-item svg {
+    width: 14px;
+    height: 14px;
+    color: var(--primary);
+    flex-shrink: 0;
 }
 
 .contact-item a {
